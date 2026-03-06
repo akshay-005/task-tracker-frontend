@@ -5,6 +5,7 @@ import Login     from './pages/Login'
 import Register  from './pages/Register'
 import Dashboard from './pages/Dashboard'
 import Tasks     from './pages/Tasks'
+import AdminUsers from './pages/AdminUsers'
 
 const App = () => (
   <AuthProvider>
@@ -14,6 +15,7 @@ const App = () => (
       <Route path="/register"  element={<Register />} />
       <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
       <Route path="/tasks"     element={<ProtectedRoute><Tasks /></ProtectedRoute>} />
+      <Route path="/admin/users" element={<ProtectedRoute><AdminUsers /></ProtectedRoute>} />
     </Routes>
   </AuthProvider>
 )

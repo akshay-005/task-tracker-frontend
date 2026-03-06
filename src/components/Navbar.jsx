@@ -27,6 +27,11 @@ const Navbar = () => {
           </span>
           <Link to="/dashboard" className="text-sm text-white/70 hover:text-white transition-colors">Dashboard</Link>
           <Link to="/tasks"     className="text-sm text-white/70 hover:text-white transition-colors">Tasks</Link>
+          {user?.role === 'admin' && (
+  <Link to="/admin/users" className="text-sm text-indigo-400 hover:text-indigo-300 transition-colors">
+    Admin Panel
+  </Link>
+)}
           <button
             onClick={handleLogout}
             className="text-sm px-4 py-2 rounded-lg border border-white/20 text-white/70 hover:bg-white/10 hover:text-white transition-all"
@@ -50,6 +55,11 @@ const Navbar = () => {
           <span className="text-sm text-white/50">{user?.name} — <span className="text-indigo-400">{user?.role}</span></span>
           <Link to="/dashboard" onClick={() => setMenuOpen(false)} className="text-sm text-white/70 hover:text-white">Dashboard</Link>
           <Link to="/tasks"     onClick={() => setMenuOpen(false)} className="text-sm text-white/70 hover:text-white">Tasks</Link>
+          {user?.role === 'admin' && (
+  <Link to="/admin/users" onClick={() => setMenuOpen(false)} className="text-sm text-indigo-400">
+    Admin Panel
+  </Link>
+)}
           <button onClick={handleLogout} className="text-left text-sm text-red-400 hover:text-red-300">Logout</button>
         </div>
       )}
